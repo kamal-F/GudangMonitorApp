@@ -33,6 +33,9 @@
             btnStartLogging = new Button();
             btnConnect = new Button();
             cmbPort = new ComboBox();
+            label1 = new Label();
+            lblKlasifikasi = new Label();
+            testTxt = new TextBox();
             SuspendLayout();
             // 
             // lblSuhu
@@ -79,11 +82,41 @@
             cmbPort.Size = new Size(151, 33);
             cmbPort.TabIndex = 4;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(331, 276);
+            label1.Name = "label1";
+            label1.Size = new Size(95, 25);
+            label1.TabIndex = 5;
+            label1.Text = "kelasifikasi";
+            label1.Click += label1_Click_1;
+            // 
+            // lblKlasifikasi
+            // 
+            lblKlasifikasi.AutoSize = true;
+            lblKlasifikasi.Location = new Point(331, 325);
+            lblKlasifikasi.Name = "lblKlasifikasi";
+            lblKlasifikasi.Size = new Size(55, 25);
+            lblKlasifikasi.TabIndex = 6;
+            lblKlasifikasi.Text = "None";
+            // 
+            // testTxt
+            // 
+            testTxt.Location = new Point(331, 221);
+            testTxt.Name = "testTxt";
+            testTxt.Size = new Size(150, 31);
+            testTxt.TabIndex = 7;
+            testTxt.TextChanged += testTxt_TextChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(510, 450);
+            Controls.Add(testTxt);
+            Controls.Add(lblKlasifikasi);
+            Controls.Add(label1);
             Controls.Add(cmbPort);
             Controls.Add(btnConnect);
             Controls.Add(btnStartLogging);
@@ -91,6 +124,7 @@
             Controls.Add(lblSuhu);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -102,5 +136,8 @@
         private Button btnStartLogging;
         private Button btnConnect;
         private ComboBox cmbPort;
+        private Label label1;
+        private Label lblKlasifikasi;
+        private TextBox testTxt;
     }
 }
