@@ -36,6 +36,12 @@
             label1 = new Label();
             lblKlasifikasi = new Label();
             testTxt = new TextBox();
+            btnManualOn = new Button();
+            btnManualOff = new Button();
+            trackPWM = new TrackBar();
+            lblMode = new Label();
+            chkOtomatis = new CheckBox();
+            ((System.ComponentModel.ISupportInitialize)trackPWM).BeginInit();
             SuspendLayout();
             // 
             // lblSuhu
@@ -109,11 +115,65 @@
             testTxt.TabIndex = 7;
             testTxt.TextChanged += testTxt_TextChanged;
             // 
+            // btnManualOn
+            // 
+            btnManualOn.Location = new Point(548, 76);
+            btnManualOn.Name = "btnManualOn";
+            btnManualOn.Size = new Size(112, 34);
+            btnManualOn.TabIndex = 8;
+            btnManualOn.Text = "button1";
+            btnManualOn.UseVisualStyleBackColor = true;
+            btnManualOn.Click += btnManualOn_Click;
+            // 
+            // btnManualOff
+            // 
+            btnManualOff.Location = new Point(548, 133);
+            btnManualOff.Name = "btnManualOff";
+            btnManualOff.Size = new Size(112, 34);
+            btnManualOff.TabIndex = 9;
+            btnManualOff.Text = "button2";
+            btnManualOff.UseVisualStyleBackColor = true;
+            btnManualOff.Click += btnManualOff_Click;
+            // 
+            // trackPWM
+            // 
+            trackPWM.Location = new Point(548, 208);
+            trackPWM.Maximum = 255;
+            trackPWM.Name = "trackPWM";
+            trackPWM.Size = new Size(156, 69);
+            trackPWM.TabIndex = 10;
+            trackPWM.Scroll += trackPWM_Scroll;
+            // 
+            // lblMode
+            // 
+            lblMode.AutoSize = true;
+            lblMode.Location = new Point(548, 37);
+            lblMode.Name = "lblMode";
+            lblMode.Size = new Size(59, 25);
+            lblMode.TabIndex = 11;
+            lblMode.Text = "label2";
+            // 
+            // chkOtomatis
+            // 
+            chkOtomatis.AutoSize = true;
+            chkOtomatis.Location = new Point(548, 272);
+            chkOtomatis.Name = "chkOtomatis";
+            chkOtomatis.Size = new Size(121, 29);
+            chkOtomatis.TabIndex = 12;
+            chkOtomatis.Text = "checkBox1";
+            chkOtomatis.UseVisualStyleBackColor = true;
+            chkOtomatis.CheckedChanged += chkOtomatis_CheckedChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(510, 450);
+            ClientSize = new Size(775, 450);
+            Controls.Add(chkOtomatis);
+            Controls.Add(lblMode);
+            Controls.Add(trackPWM);
+            Controls.Add(btnManualOff);
+            Controls.Add(btnManualOn);
             Controls.Add(testTxt);
             Controls.Add(lblKlasifikasi);
             Controls.Add(label1);
@@ -125,6 +185,7 @@
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)trackPWM).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -139,5 +200,10 @@
         private Label label1;
         private Label lblKlasifikasi;
         private TextBox testTxt;
+        private Button btnManualOn;
+        private Button btnManualOff;
+        private TrackBar trackPWM;
+        private Label lblMode;
+        private CheckBox chkOtomatis;
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.ML;
 using System.IO.Ports;
+using System.Security.Policy;
 
 namespace GudangMonitorApp
 {
@@ -81,6 +82,35 @@ namespace GudangMonitorApp
             var input = new TemperatureData { Temperature = float.Parse(testTxt.Text) };
             var hasil = predEngine.Predict(input);
             lblKlasifikasi.Text = hasil.Prediction;
+        }
+
+        private void btnManualOn_Click(object sender, EventArgs e)
+        {
+            serial.WriteLine("FAN_ON");
+        }
+
+        private void btnManualOff_Click(object sender, EventArgs e)
+        {
+            serial.WriteLine("FAN_OFF");
+        }
+
+        private void trackPWM_Scroll(object sender, EventArgs e)
+        {
+            int pwm = trackPWM.Value;
+            serial.WriteLine($"PWM:{pwm}");
+
+        }
+
+        private void chkOtomatis_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkOtomatis.Checked)
+            {
+                if (lblKlasifikasi.Text == "Danger")
+                    serial.WriteLine("ALARM");
+                else
+                    serial.WriteLine("FAN_OFF");
+            }
+
         }
     }
 }
